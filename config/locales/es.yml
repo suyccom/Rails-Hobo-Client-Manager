@@ -1,0 +1,273 @@
+####
+#### Hobo Translation
+####
+es:
+  hobo:
+    # default hobo pages translations
+    index:
+      # if you uncomment the following you will loose the automatic selection of dinamically pluralized nav-tabs
+      # if you need a different title you should implement a different way to select the tab on your own
+      #title: "Indice {{model}}"
+      heading: "Indice {{model}}"
+
+    new:
+      title: "Nuevo Registro de {{model}}"
+      heading: "Nuevo Registro de {{model}}"
+
+    show:
+      title: "{{model}}"
+      heading: "{{model}} {{name}}"
+      back_link: "Atrás"
+      edit_link: "Actualizar {{model}}"
+      new_link: "Nuevo Registro {{model}}"
+      add_form_heading: "Añadir {{model}}"
+
+    edit:
+      title: "Actualización {{model}}"
+      heading: "Actualización {{model}}"
+
+    index_for_owner:
+      title: "{{model}} para"
+      # you can use the following to completely override the collection heading
+      # be aware that you will loose the automatic Your <collection> / Jom's <collection>
+      # default output for User models
+      # you better define the heading.* in the specific collection namespace
+      #heading:
+      subheading: "Para:"
+
+    new_for_owner:
+      title: "Nuevo Registro de {{model}} para"
+      heading: "Nuevo Registro de {{model}}"
+      subheading: "Para:"
+
+    login:
+      title: "Iniciar Sesión"
+      heading: "Iniciar Sesión"
+      email_address: &email_address "Correo Eléctronico"
+      name: "Nombre"
+      password: "Contraseña"
+      remember_me: "Recuerda mis datos"
+      login: "Identifición"
+      signup: "Inscripción"
+      forgot_password: &forgot_password "¿Contraseña olvidada?"
+
+    signup:
+      title: "Inscripción"
+      heading: "Inscribir Nuevo Usuario"
+
+    forgot_password:
+      title: *forgot_password
+      heading: *forgot_password
+      text: "Ingresa la dirección de tu Correo Eléctronico que utilizaste cuando te inscribste.
+             Te enviaremos un Correo Eléctronico que podras utilizar para generar una nueva contraseña."
+      email_address: *email_address
+      send: "Enviar"
+
+    forgot_password_sent:
+      title: "Contraseña olvidada - Correo Eléctronico enviado"
+      heading: "Contraseña olvidada - Correo Eléctronico enviado"
+      text: "El mensaje con las instruciones para generar una nueva contraseña ha sido enviado a {{email_address}}
+             Si no lo recibe, por favor verifique el filtro anti-spam."
+
+    account_disabled_page:
+      title: "Cuenta Desactivada"
+      heading: "Cuenta Desactivada"
+      text: "Su cuenta está desactivada en ese momento."
+
+    account_page:
+      title: "Tu Perfil"
+      heading: "Tu Perfil"
+      new_password: "Nueva Contraseña"
+      confirm_new_password: "Confirmación Nueva Contraseña"
+
+    # default hobo action translation
+    actions:
+      new: "Nuevo Registro de {{model}}"
+      create: "Crear {{model}}"
+      previous: "Precedente"
+      next: "Proxima"
+      add: "Añadir"
+      show_all: "todos..."
+      delete: "Borrar {{model}}"
+      save: "Guardar {{model}}"
+      cancel: "Cancelar"
+      edit: "Actualizar {{model}}"
+      back: "Volver"
+      back_to_parent: "Volver a {{parent}} {{name}}"
+      send: "Enviar"
+      remove: "Eliminar"
+      signup: "Inscripción"
+      login: "Iniciar Sesión"
+      logout: "Terminar Sesión"
+      logged_in_as: "{{name}}"
+      account: "Perfil"
+      save_account: "Guarda Tu Perfil"
+
+    # default hobo message translation
+    messages:
+      create:
+        success: "La creación de {{model}} ha sido exitosa"
+        error: "La creación de {{model}} no ha sido exitosa.\n{{errors}}"
+      creator:
+        error: "El creator {{name}} no se pudo executar.\n{{errors}}"
+      transition:
+        error: "La transición {{name}} no se pudo executar.\n{{errors}}"
+      update:
+        no_attribute_error: "Ninguna actualización esta especificada en los parámetros"
+        success: "Los cambios a {{model}} han sido guardados"
+        error: "Ha habido un problema con ese cambio.\n{{errors}}"
+      destroy:
+        success: "El borrado de {{model}} ha sido exitosa."
+      signup:
+        success: "¡Gracias por inscribirse!"
+        must_activate: "Tiene que activar la cuenta antes de iniciar la sesión. Por favor verifique su correo eléctronico."
+      login:
+        success: "La sesión ha iniciado."
+        error: "¡No se ingresaron {{login}} y Contraseña validos!"
+      logout: "La sesión ha terminado."
+      reset_password: "Tu contraseña ha sido reiniciada."
+      permission_denied: "¡Permiso denegado!"
+      not_found: "La pagina solicitada no se encuentra."
+      unauthenticated: "No se pudo autenticar."
+      current_password_is_not_correct: "no está correcta"
+      you_are_site_admin: "Ahora usted es el administrador del sitio."
+      you_signed_up: "Usted se inscribió."
+      no: "No hay {{model}} disponibles."
+      confirm: "¿Está seguro?"
+
+    # default hobo collection translation
+    collection:
+      count: &collection_count
+        zero: "No hay {{model}}"
+        one: "Hay solo 1 {{model}}"
+        other: "Hay {{count}} {{model}}"
+      # you can use the following to completely override the collection heading
+      # be aware that you will loose the automatic Your <collection> / Jom's <collection>
+      # default output for User models
+      # you better define the heading.* in the specific collection namespace
+      #heading:
+      add_form_heading: "Añadir {{model}}"
+      empty_message: "Ningun registros"
+
+    # default hobo form translation
+    form:
+      new:
+        heading: "Nuevo Registro de {{model}}"
+      error:
+        heading: "Occurió el siguiente error:"
+      select_many:
+        prompt: "Añadir {{model}}"
+
+    # hobo support
+    support:
+      or: "o"
+      a: "un/una"
+      an: "un/una"
+
+    table_plus:
+      search: "Buscar"
+      submit_label: "Ir"
+
+    live_search:
+      label: "Buscar"
+      results_label: "Resultados de la búsqueda"
+      close_button: "cerrar"
+      no_results: "No se encuentran resultados."
+
+    dev_user_changer:
+      guest: "Invitado"
+
+
+
+  # Moneda en Euros
+  number:
+    currency:
+      format:
+        unit: "€"
+        precision: 2
+        separator: ","
+        delimiter: "."
+        format: "%n"
+        
+  #Formato de fecha
+  date:
+    formats:
+      # Use the strftime parameters for formats.
+      # When no format has been given, it uses default.
+      # You can provide other formats here if you like!
+      default: "%d/%m/%Y"
+      short: "%d de %b"
+      long: "%d de %B de %Y"
+
+    day_names: [Domingo, Lunes, Martes, Miércoles, Jueves, Viernes, Sábado]
+    abbr_day_names: [Dom, Lun, Mar, Mie, Jue, Vie, Sab]
+
+    # Don't forget the nil at the beginning; there's no such thing as a 0th month
+    month_names: [~, Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre]
+    abbr_month_names: [~, Ene, Feb, Mar, Abr, May, Jun, Jul, Ago, Sep, Oct, Nov, Dic]
+    # Used in date_select and datime_select.
+    order:
+      - :day
+      - :month
+      - :year
+      
+      
+#Errores de validacion     
+  activerecord:
+    errors:
+      messages:
+        title: "Para continuar por favor corrija los siguientes errores"
+        blank: "no puede estar en blanco"
+        record_invalid: "La validación falló: %{errors}"
+      
+  users:
+    index:
+      title: "Lista de clientes"
+      heading: "Lista de clientes"
+    actions:
+      create: "Crear cliente"
+      new: "Añadir un cliente"
+      edit: "Editar cliente"
+    collection:
+      count: &collection_count
+        zero: "No hay clientes"
+        one: "Hay solo 1 cliente"
+        other: "Hay {{count}} clientes"
+    new:
+      title: "Añadir un cliente"
+      heading: "Añadir un cliente"
+    show:
+      title: "Cliente"
+      heading: "Cliente: {{name}}"
+      back_link: "Atrás"
+      edit_link: "Actualizar cliente"
+      new_link: "Añadir un cliente"
+      add_form_heading: "Añadir cliente"
+  
+  documentos:
+    actions:
+      create: "Subir documento"
+      new: "Subir documento"
+    index:
+      title: "Lista de documentos"
+      heading: "Lista de documentos"
+    form:
+      new:
+        heading: "Subir un nuevo documento"
+  emails:
+    show:
+      title: "Email"
+      heading: "Email: {{name}}"
+      back_link: "Atrás"
+      edit_link: "Actualizar email"
+      new_link: "Añadir un email"
+      add_form_heading: "Añadir email"
+      
+      
+
+  support:
+    array:
+      words_connector: ", "
+      last_word_connector: " y "	
+      two_words_connector: ", "
+

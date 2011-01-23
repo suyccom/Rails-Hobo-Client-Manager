@@ -1,0 +1,81 @@
+<!-- AUTOMATICALLY GENERATED FILE - DO NOT EDIT -->
+
+<def tag="form" for="Documento">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="fichero, adjunto_file_name, adjunto_content_type, adjunto_file_size, adjunto_updated_at, user" param/>
+    <div param="actions">
+      <submit label="#{ht 'documentos.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+
+
+<def tag="form" for="Email">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="titulo, contenido, emisor, receptor" param/>
+    <div param="actions">
+      <submit label="#{ht 'emails.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+
+
+<def tag="form" for="User">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="name, email_address, administrator, telefono, fax, notas, fecha_alta, fecha_baja, logo_file_name, logo_content_type, logo_file_size, logo_updated_at, estado" param/>
+    <div param="actions">
+      <submit label="#{ht 'users.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+<def tag="signup-form" polymorphic/>
+<def tag="signup-form" for="User">
+  <form lifecycle="signup" merge param="default">
+    <error-messages param/>
+    <field-list fields="name, email_address, password, password_confirmation" param/>
+    <div param="actions">
+      <submit label="#{ht 'users.actions.signup', :default=>['Signup']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+<def tag="dar-de-baja-form" polymorphic/>
+<def tag="dar-de-baja-form" for="User">
+  <form lifecycle="dar_de_baja" merge param="default">
+    <error-messages param/>
+    <input type="hidden" name="key" value="&this.lifecycle.provided_key" if="&this.lifecycle.provided_key"/>
+    <field-list fields="" param/>
+    <div param="actions">
+      <submit label="#{ht 'users.actions.dar_de_baja', :default=>['Dar De Baja']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+<def tag="dar-de-alta-form" polymorphic/>
+<def tag="dar-de-alta-form" for="User">
+  <form lifecycle="dar_de_alta" merge param="default">
+    <error-messages param/>
+    <input type="hidden" name="key" value="&this.lifecycle.provided_key" if="&this.lifecycle.provided_key"/>
+    <field-list fields="" param/>
+    <div param="actions">
+      <submit label="#{ht 'users.actions.dar_de_alta', :default=>['Dar De Alta']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+<def tag="reset-password-form" polymorphic/>
+<def tag="reset-password-form" for="User">
+  <form lifecycle="reset_password" merge param="default">
+    <error-messages param/>
+    <input type="hidden" name="key" value="&this.lifecycle.provided_key" if="&this.lifecycle.provided_key"/>
+    <field-list fields="password, password_confirmation" param/>
+    <div param="actions">
+      <submit label="#{ht 'users.actions.reset_password', :default=>['Reset Password']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+

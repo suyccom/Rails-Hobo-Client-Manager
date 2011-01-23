@@ -1,0 +1,214 @@
+/* Main structure (sizes and backgrounds) */
+body{
+  width:100%;
+}
+html,body{
+  background:#F3F1E6;
+}
+.page-header{
+  background-color: #444034;
+  background-image:none;
+  margin-top:0;
+}
+.content, .page-header{
+  padding:0 60px;
+}
+.section.content{
+  background:none;
+  background-color: #F3F1E6;
+}
+.content-header,.content-body{
+  background-color:white;
+  margin: 0;
+}
+
+
+/* Header (title and account menu) */
+.page-header h1{
+  background-image:url('../images/logo_eidabe.jpg');
+  background-repeat:no-repeat;
+  text-indent:-99999px;
+  width:138px;
+  height:57px;
+  padding:5px;
+}
+.page-header h1 a{
+  display:block;
+  width:138px;
+  height:57px;
+  padding:5px;
+}
+
+.account-nav{
+  margin:5px;
+}
+
+
+/* Main Menu */
+.main-nav{
+  padding:0;
+}
+.page-header .navigation.main-nav a {
+    background: none;
+    background-color: #59564D;
+}
+.page-header .navigation.main-nav a:hover {
+    background-color: #8F8A79;
+}
+.page-header .navigation.main-nav li.current a {
+    background: none;
+    background-color:#F3F1E6;
+}
+
+
+
+/* Content */
+h2{
+  margin:0 0 5px;
+}
+.content-header {
+  padding: 15px 20px 10px 20px;
+}
+.content-body{
+  padding: 5px 20px 20px 20px;
+} 
+
+
+
+/* New link (make it look like a button) */
+a.superlink{
+  border-width:1px;
+  border-color:#afafaf;
+  border-style:solid;
+  display:block;
+  color:#555555;
+  font-weight:bold;
+  font-size:14px;
+  height:30px;
+  line-height:29px;
+  text-decoration:none;
+  width:200px;
+  text-indent:30px;
+  display:block;
+  margin-top:0;
+}
+a:hover.superlink{
+  background-color:#F9F4E2;
+}
+a:active.superlink{
+  border-color:black;
+  background-color:#F1E8C8;
+}
+a.new-link{
+  background:#FCFDF8 url(/images/icons/multisend.ico) no-repeat 10px 8px;
+}
+a.edit-link{
+  background:#FCFDF8 url(/images/icons/multi-user.ico) no-repeat 10px 8px;
+}
+a.remember-link{
+  background:#FCFDF8 url(/images/icons/email.ico) no-repeat 10px 8px;
+}
+
+
+
+
+/* Aside */
+.aside{
+  float:right;
+}
+.show-page .content-header {
+    /*border-bottom: 1px dotted #888888;*/
+    position: static;
+    /*float:left;*/
+}
+
+
+div.aux {
+  margin-bottom: 1em;
+}
+div.item-lat {
+  border-bottom: 1px dotted #4B534E;
+}
+div.item-lat h4 {
+  margin-bottom: 1em;
+}
+div.item-lat .button, div.item-lat input {
+  margin-bottom: 1em;
+  display: block;
+}
+div.item-lat a.button:hover {
+  color:#fff
+}
+
+
+
+
+/* New document form */
+.new-form{
+  background-color:#F5F5F5;
+  border: 1px solid #E8E8E8;
+  margin: 10px auto;
+  width:50%;
+  min-width:500px;
+  padding: 20px;
+}
+
+
+
+
+
+/* Live Search */
+.page-header div.search input {
+    font-size: 15px;
+}
+.page-header div.search {
+    float: right;
+    padding: 0;
+    margin-top: -5px;
+}
+#search-results-panel {
+    background: none repeat scroll 0 0 #F2F2F2;
+    border: 1px solid #DDDDDD;
+    color: black;
+    height: 450px;
+    overflow: auto;
+    padding: 0 20px 20px;
+    position: absolute;
+    right: 25px;
+    top: 102px;
+    width: 350px;
+    z-index: 50;
+}
+#search-results-panel h2{
+  padding:10px 0;
+}
+
+
+
+/* Login Page */
+.login-page .content{
+  padding:0;
+}
+.login-page .content .content-header {
+  padding: 15px 20px 15px;
+}
+
+
+/* Customize flash message */
+.flash.notice {
+  background: none repeat scroll 0 0 #736B53;
+}
+.flash {
+  position:absolute;
+  top:10px;
+  border-width: 2px 0;
+  color: #efefef;
+  margin: 0 30%;
+  padding: 5px 30px;
+}
+
+
+/* Deprecated code */
+a.button:hover {
+  color: #fff;
+}

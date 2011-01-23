@@ -1,0 +1,106 @@
+<show-page>
+
+  <before-field-list:>
+    <img style="padding-right:15px;" align="left" src="/#{this.logo.url :small}" alt="logotipo"/>
+  </before-field-list:>
+  
+  <field-list: style="width:50%;" skip="logo_file_name,logo_content_type,logo_file_size,logo_updated_at"/>
+  
+  <append-content-body:>
+    <br/><br/><br/>
+    <h2>Últimos emails de este cliente</h2> <a href="/emails">(ver todos)</a>
+    <div style="margin-right:250px;">
+      <collection with="&@emails"/>
+    </div>
+    <div style="clear:both;">&nbsp;</div>
+  </append-content-body:>
+  
+  
+  
+
+  <prepend-content:>
+    <aside>
+      <acciones/>
+      <transiciones/>  
+      <documentos if="&this.documentos"/>  
+    </aside>
+  </prepend-content:>
+  
+  <edit-link: replace/>
+
+</show-page>
+
+
+
+
+
+
+
+
+
+
+<!-- # Acciones para el aside # -->
+<def tag="acciones">
+  <div class='item-lat'>
+    <h4>Acciones</h4>
+    <a class="superlink edit-link" action="edit" if="&can_edit?">
+      <ht key="users.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
+        Edit User
+      </ht>
+    </a>
+    <br/>
+    <a class="superlink remember-link" href="#">
+      <ht key="users.actions.remember">
+        Recordar contraseña
+      </ht>
+    </a>
+    <br/>
+  </div>
+</def>
+
+
+
+<!--  # Transiciones para el aside # -->
+<def tag="transiciones">
+  <div class='item-lat'>
+    <h4>Transiciones</h4>
+    <transition-buttons/>
+  </div>
+</def>
+
+
+<!--  # Documentos para el aside # -->
+<def tag="documentos">
+  <!-- Formulario de documentos adjuntos -->
+  <div class='item-lat'>
+    <h4>Últimos documentos</h4>
+    <collection:documentos >
+      <empty-message:></empty-message:>
+    </collection>
+<!--    <form:documentos.new>-->
+<!--      <field-list:>-->
+<!--        <adjunto-label: replace/>-->
+<!--        <adjunto-view:>-->
+<!--          <input style="font-size:10px;"/>-->
+<!--        </adjunto-view:>-->
+<!--      </field-list:>-->
+<!--    </form>-->
+  </div> 
+</def>    
+
+
+<!--  # Card de cada documento para el aside # -->
+<def tag="card" for="Documento">
+  <card class="documento" param="default" merge>
+    <header: param>
+      <h4 param="heading"><a href="/#{this.adjunto.url}"><name/></a></h4>
+      <div param="actions">
+        <delete-button label="X" param/>
+      </div>
+    </header:>
+    <body:>
+      <p>Tamaño: <this.tamanio/></p>
+      <p>Adjunto subido el <this.fecha/></p>
+    </body:>
+  </card>
+</def>

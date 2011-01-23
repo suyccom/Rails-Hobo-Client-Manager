@@ -1,0 +1,5 @@
+<show-page>
+  <field-list:>
+    <contenido-view:><%= auto_link(simple_format(this)) %></contenido-view:>
+  </field-list:>
+</show-page>

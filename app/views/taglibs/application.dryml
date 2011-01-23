@@ -1,0 +1,112 @@
+<include src="rapid" plugin="hobo"/>
+
+<include src="taglibs/auto/rapid/cards"/>
+<include src="taglibs/auto/rapid/pages"/>
+<include src="taglibs/auto/rapid/forms"/>
+
+<set-theme name="clean"/>
+
+<def tag="app-name">Gestor de clientes 2.0</def>
+
+
+
+<!-- ====== Main Navigation ====== -->
+
+<def tag="main-nav">
+  <navigation class="main-nav" merge-attrs param="default">
+    <menu-item ruta="/users"><ht key="users.nav_item">Clientes</ht></menu-item>
+    <menu-item ruta="/users/#{session[:cliente]}" if="&session[:cliente]">
+      <%= session[:nombre_cliente] %>
+    </menu-item>
+    <nav-item with="&Email" if="&session[:cliente]"><ht key="emails.nav_item">Emails</ht></nav-item>
+    <nav-item with="&Documento" if="&session[:cliente]"><ht key="documentos.nav_item">Documentos</ht></nav-item>
+  </navigation>
+</def>
+
+<def tag="menu-item" attrs="ruta">
+  <li class="current" if="&pagina_actual(ruta, @actual)">
+    <a href="&ruta" class="class-link" param="default"/>
+  </li>
+  <li class="" unless="&pagina_actual(ruta, @actual)">
+    <a href="&ruta" class="class-link" param="default"/>
+  </li>
+</def>
+
+
+
+
+
+<!-- Paperclip -->
+<def tag="input" for="Paperclip::Attachment"> 
+  <%= file_field_tag param_name_for_this, attributes %> 
+</def>
+ 
+ 
+<extend tag="form" for="Documento"> 
+<old-form enctype="multipart/form-data" merge> 
+  <field-list: fields="adjunto" /> 
+  <!-- Campo oculto: añade el user_id si este está establecido en la sesión -->
+  <after-field-list: if="&session[:cliente]"><input type="hidden" name="documento[user_id]" value="#{session[:cliente]}"/></after-field-list:>
+  <submit: label="Añadir documento"/>
+</old-form> 
+</extend> 
+
+<extend tag="form" for="User"> 
+<old-form enctype="multipart/form-data" merge> 
+  <field-list: fields="name,email_address,telefono,fax,notas,logo" /> 
+</old-form> 
+</extend> 
+
+
+<!-- Card de cada cliente/usuario -->
+<def tag="card" for="User">
+  <card class="user" param="default" merge>
+    <header: param>
+      <a><img style="padding-right:15px; height:70px; width:70px;" align="left" src="/#{this.logo.url :thumbnail}" alt="logotipo"/></a>
+      <h4 param="heading"><a><name/></a></h4>
+    </header:>
+    <body:>
+      <p param="count">
+          <ht key="documentos.collection.count" count="&this.documentos.count"/>
+      </p>
+      <p>
+          <ht key="emails.collection.count" count="&this.numero_total_emails"/>
+      </p>
+    </body:>
+  </card>
+</def>
+
+
+<!-- Card de cada documento -->
+<def tag="card" for="Documento">
+  <card class="documento" param="default" merge>
+    <header: param>
+      <a href="/#{this.adjunto.url}"><img style="padding-right:15px; width:70px; height:70px; float:left;" src="/#{this.adjunto :thumbnail}" alt="vista previa"/></a>
+      <h4 param="heading"><a href="/#{this.adjunto.url}"><name/></a></h4>
+      <div param="actions">
+        <delete-button label="X" param/>
+      </div>
+    </header:>
+    <body:>
+      <p>Tamaño: <this.tamanio/></p>
+      <p>Adjunto subido el <this.fecha/></p>
+    </body:>
+  </card>
+</def>
+
+
+<!-- Card de cada email -->
+<def tag="card" for="Email">
+  <card class="email" param="default" merge>
+    <header: param>
+      <img align="left" style="padding-right:5px;" src="/images/icons/irc-arrow.ico" alt="enviado" if="&this.enviado"/>
+      <img align="left" style="padding-right:5px;" src="/images/icons/irc-arrow-back.ico" alt="enviado" unless="&this.enviado"/>
+      <h4 param="heading"><a><name/></a></h4>
+    </header:>
+  </card>
+</def>
+
+
+
+
+
